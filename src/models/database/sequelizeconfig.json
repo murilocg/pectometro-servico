@@ -1,0 +1,8 @@
+{
+  "database": "pectometro3",
+  "user": "development",
+  "password": "development",
+  "host": "192.168.99.100",
+  "dialect": "postgres",
+  "port": 5432
+}
