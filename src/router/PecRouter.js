@@ -1,9 +1,9 @@
 const { Router } = require('express');
 const pecController = require('../controllers/pecController');
+const auth = require('../utils/auth');
 
-const PecRouter = Router();
+const pecRouter = Router();
+pecRouter.get('/', pecController.pesquisar);
+pecRouter.post('/sincronizar', auth.validateJwtAdmin, pecController.sincronizar);
 
-PecRouter.get('/', pecController.pesquisar);
-PecRouter.post('/sincronizar', pecController.sincronizar);
-
-module.exports = PecRouter;
+module.exports = pecRouter;

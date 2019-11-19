@@ -7,8 +7,7 @@ class PecController {
       const pecs = await pecModel.pesquisar(termo);
       return res.send({ pecs });
     } catch (error) {
-      console.log(error);
-      res.status(500).send({ error });
+      res.status(500).send({ message: error.message });
     }
   }
   async sincronizar(req, res) {
@@ -17,7 +16,7 @@ class PecController {
       return res.send({ message: 'Sincronizado com sucesso!' });
     } catch (error) {
       console.log(error);
-      res.status(500).send({ error });
+      res.status(500).send({ message: error.message });
     }
   }
 }

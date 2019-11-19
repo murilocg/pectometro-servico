@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const UserRouter = require('./router/UserRouter');
-const PecRouter = require('./router/PecRouter');
-const AuthMiddleware = require('./middlewares/authMiddleware');
+const userRouter = require('./router/userRouter');
+const pecRouter = require('./router/pecRouter');
+const authRouter = require('./router/authRouter');
 
 const app = express();
 const router = express.Router();
@@ -16,7 +16,12 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/users/', router, UserRouter);
-app.use('/pecs/', router, PecRouter);
-// app.use(router, AuthMiddleware);
+app.use('/auth/', router, authRouter);
+app.use('/usuarios/', router, userRouter);
+app.use('/pecs/', router, pecRouter);
+
+app.use(function(err, req, res, next) {
+  if (err.name === 'UnauthorizedError') res.status(err.status).send({ message: err.message });
+  else next();
+});
 module.exports = app;

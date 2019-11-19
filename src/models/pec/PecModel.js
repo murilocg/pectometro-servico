@@ -1,7 +1,6 @@
 const { tratarTermoDeBusca } = require('./utils');
-const pecServiceDb = require('./PecServiceDb');
-// const autorModel = require('../autor/AutorModel');
-const pecServiceApi = require('./PecServiceApi');
+const pecServiceDb = require('./pecServiceDb');
+const pecServiceApi = require('./pecServiceApi');
 
 class PecModel {
   async sincronizar() {

@@ -1,4 +1,4 @@
-const PecAutorSchema = (sequelize, DataTypes) => {
+const PecAutor = (sequelize, DataTypes) => {
   const schema = sequelize.define('pec_autor', {
     id: {
       type: DataTypes.INTEGER,
@@ -17,4 +17,4 @@ const PecAutorSchema = (sequelize, DataTypes) => {
   return schema;
 };
 
-module.exports = PecAutorSchema;
+module.exports = PecAutor;
