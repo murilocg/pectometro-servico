@@ -9,6 +9,8 @@ class DB {
     this.Pec = this.sequelize.import('./Pec');
     this.Autor = this.sequelize.import('./Autor');
     this.PecAutor = this.sequelize.import('./PecAutor');
+    this.CustoPec = this.sequelize.import('./CustoPec');
+    this.Comentario = this.sequelize.import('./Comentario');
     this.Pec.belongsToMany(this.Autor, {
       through: this.PecAutor,
       foreignKey: 'pecId'
@@ -18,6 +20,8 @@ class DB {
       foreignKey: 'autorId'
     });
     this.Cidadao.belongsTo(this.Usuario, { foreignKey: 'usuarioId' });
+    this.Comentario.belongsTo(this.Cidadao, { foreignKey: 'cidadaoId' });
+    this.Comentario.belongsTo(this.Pec, { foreignKey: 'pecId' });
   }
 
   async init() {

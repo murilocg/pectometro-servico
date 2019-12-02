@@ -33,6 +33,22 @@ class PecModel {
     if (Number(termo)) return await pecServiceDb.getPecsPorNumero(Number(termo));
     return await pecServiceDb.filtrar(termo);
   }
+
+  async getCustoPec() {
+    return await pecServiceDb.getCustoPec();
+  }
+
+  async atualizarCustoPec(custo) {
+    await pecServiceDb.atualizarCustoPec(custo);
+  }
+
+  async getComentarios(pecId) {
+    return await pecServiceDb.getComentarios(pecId);
+  }
+
+  async criarComentario(comentario) {
+    return await pecServiceDb.criarComentario(comentario);
+  }
 }
 
 module.exports = new PecModel();

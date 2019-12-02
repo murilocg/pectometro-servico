@@ -15,7 +15,6 @@ class CidadaoService {
   }
 
   async criarCidadao(cidadao) {
-    console.log(cidadao);
     const cidadaoCriado = await this.Cidadao.create(cidadao);
     return cidadaoCriado;
   }
