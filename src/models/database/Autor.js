@@ -1,4 +1,4 @@
-const AutorSchema = (sequelize, DataTypes) => {
+const Autor = (sequelize, DataTypes) => {
   const schema = sequelize.define('autor', {
     id: {
       type: DataTypes.INTEGER,
@@ -18,4 +18,4 @@ const AutorSchema = (sequelize, DataTypes) => {
   return schema;
 };
 
-module.exports = AutorSchema;
+module.exports = Autor;

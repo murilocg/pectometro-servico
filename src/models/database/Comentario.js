@@ -1,11 +1,11 @@
-const ProfissaoSchema = (sequelize, DataTypes) => {
-  const schema = sequelize.define('profissao', {
+const Comentario = (sequelize, DataTypes) => {
+  const schema = sequelize.define('comentario', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    nome: {
+    texto: {
       type: DataTypes.STRING,
       allowNull: false
     }
@@ -13,4 +13,4 @@ const ProfissaoSchema = (sequelize, DataTypes) => {
   return schema;
 };
 
-module.exports = ProfissaoSchema;
+module.exports = Comentario;

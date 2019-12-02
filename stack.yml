@@ -7,6 +7,6 @@ services:
     environment:
       POSTGRES_PASSWORD: development
       POSTGRES_USER: development
-      POSTGRES_DB: pectometro3
+      POSTGRES_DB: pectometro
     ports:
       - '5432:5432'

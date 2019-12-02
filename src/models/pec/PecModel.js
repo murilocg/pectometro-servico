@@ -1,7 +1,6 @@
 const { tratarTermoDeBusca } = require('./utils');
-const pecServiceDb = require('./PecServiceDb');
-// const autorModel = require('../autor/AutorModel');
-const pecServiceApi = require('./PecServiceApi');
+const pecServiceDb = require('./pecServiceDb');
+const pecServiceApi = require('./pecServiceApi');
 
 class PecModel {
   async sincronizar() {
@@ -33,6 +32,22 @@ class PecModel {
     termo = tratarTermoDeBusca(termo);
     if (Number(termo)) return await pecServiceDb.getPecsPorNumero(Number(termo));
     return await pecServiceDb.filtrar(termo);
+  }
+
+  async getCustoPec() {
+    return await pecServiceDb.getCustoPec();
+  }
+
+  async atualizarCustoPec(custo) {
+    await pecServiceDb.atualizarCustoPec(custo);
+  }
+
+  async getComentarios(pecId) {
+    return await pecServiceDb.getComentarios(pecId);
+  }
+
+  async criarComentario(comentario) {
+    return await pecServiceDb.criarComentario(comentario);
   }
 }
 

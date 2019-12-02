@@ -4,23 +4,24 @@ const config = require('./sequelizeconfig.json');
 class DB {
   constructor() {
     this.sequelize = new Sequelize(config.database, config.user, config.password, config);
-    // this.UserSchema = this.sequelize.import('../user/UserSchema');
-    // this.CidadaoSchema = this.sequelize.import('../user/CidadaoSchema');
-    // this.ProfissaoSchema = this.sequelize.import('../user/ProfissaoSchema');
-    this.PecSchema = this.sequelize.import('../pec/PecSchema');
-    this.AutorSchema = this.sequelize.import('../autor/AutorSchema');
-    this.PecAutorSchema = this.sequelize.import('../pec/PecAutorSchema');
-    this.PecSchema.belongsToMany(this.AutorSchema, {
-      through: this.PecAutorSchema,
+    this.Usuario = this.sequelize.import('./Usuario');
+    this.Cidadao = this.sequelize.import('./Cidadao');
+    this.Pec = this.sequelize.import('./Pec');
+    this.Autor = this.sequelize.import('./Autor');
+    this.PecAutor = this.sequelize.import('./PecAutor');
+    this.CustoPec = this.sequelize.import('./CustoPec');
+    this.Comentario = this.sequelize.import('./Comentario');
+    this.Pec.belongsToMany(this.Autor, {
+      through: this.PecAutor,
       foreignKey: 'pecId'
     });
-    this.AutorSchema.belongsToMany(this.PecSchema, {
-      through: this.PecAutorSchema,
+    this.Autor.belongsToMany(this.Pec, {
+      through: this.PecAutor,
       foreignKey: 'autorId'
     });
-    // this.PecSchema.hasMany(this.AutorSchema);
-    // this.UserSchema.hasOne(this.CidadaoSchema);
-    // this.ProfissaoSchema.hasOne(this.CidadaoSchema);
+    this.Cidadao.belongsTo(this.Usuario, { foreignKey: 'usuarioId' });
+    this.Comentario.belongsTo(this.Cidadao, { foreignKey: 'cidadaoId' });
+    this.Comentario.belongsTo(this.Pec, { foreignKey: 'pecId' });
   }
 
   async init() {

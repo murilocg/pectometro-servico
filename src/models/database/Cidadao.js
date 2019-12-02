@@ -1,4 +1,4 @@
-const CidadaoSchema = (sequelize, DataTypes) => {
+const Cidadao = (sequelize, DataTypes) => {
   const schema = sequelize.define('cidadao', {
     id: {
       type: DataTypes.INTEGER,
@@ -17,7 +17,11 @@ const CidadaoSchema = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    data_nascimento: {
+    dataNascimento: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    profissao: {
       type: DataTypes.STRING,
       allowNull: false
     }
@@ -25,4 +29,4 @@ const CidadaoSchema = (sequelize, DataTypes) => {
   return schema;
 };
 
-module.exports = CidadaoSchema;
+module.exports = Cidadao;

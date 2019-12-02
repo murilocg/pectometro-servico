@@ -1,9 +1,13 @@
-const userModel = require('./user/UserModel');
-const pecModel = require('./pec/PecModel');
+const adminModel = require('./user/adminModel');
+const cidadaoModel = require('./user/cidadaoModel');
+const pecModel = require('./pec/pecModel');
+const authModel = require('./auth/authModel');
 const DB = require('./database');
 
 module.exports = {
-  userModel,
+  adminModel,
+  cidadaoModel,
   pecModel,
+  authModel,
   DB
 };

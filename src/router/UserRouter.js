@@ -1,8 +1,10 @@
 const { Router } = require('express');
-const userController = require('../controllers/userController');
+const adminController = require('../controllers/adminController');
+const cidadaoController = require('../controllers/cidadaoController');
+const auth = require('../utils/auth');
 
-const UserRouter = Router();
+const userRouter = Router();
+userRouter.post('/admin', adminController.criarAdmin);
+userRouter.post('/cidadao', cidadaoController.criarCidadao);
 
-UserRouter.post('/signup', userController.signup);
-
-module.exports = UserRouter;
+module.exports = userRouter;

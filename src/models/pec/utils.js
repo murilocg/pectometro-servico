@@ -29,6 +29,16 @@ const parseAutor = autor => ({
   tipo: autor.tipo
 });
 
+const parseComentarios = comentarios =>
+  comentarios.map(c => ({
+    id: c.id,
+    texto: c.texto,
+    createdAt: c.createdAt,
+    cidadaoId: c.cidadao.id,
+    nomeCidadao: c.cidadao.usuario.nome,
+    sobrenomeCidadao: c.cidadao.usuario.sobrenome
+  }));
+
 const flat = arr => {
   const arr_result = [];
   arr.forEach(subArr => subArr.forEach(e => arr_result.push(e)));
@@ -47,5 +57,6 @@ module.exports = {
   parseAutor,
   parsePec,
   flat,
-  sleep
+  sleep,
+  parseComentarios
 };
