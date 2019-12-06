@@ -4,7 +4,7 @@ const auth = require('../utils/auth');
 
 const pecRouter = Router();
 pecRouter.get('/', pecController.pesquisar);
-pecRouter.post('/sincronizar', auth.validateJwtAdmin, pecController.sincronizar);
+pecRouter.post('/sincronizar', pecController.sincronizar);
 pecRouter.post('/custo', auth.validateJwtAdmin, pecController.atualizarCustoPec);
 pecRouter.get('/custo', pecController.getCustoPec);
 pecRouter.post('/:pecId/comentarios', auth.validateJwtCidadao, pecController.criarComentario);

@@ -7,7 +7,6 @@ class CidadaoController {
       const cidadao = await cidadaoModel.criarUsuario(usuario);
       return res.send({ cidadao });
     } catch (error) {
-      console.log(error);
       res.status(500).send({ message: error.message });
     }
   }

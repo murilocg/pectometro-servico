@@ -12,7 +12,7 @@ class PecController {
   }
   async sincronizar(req, res) {
     try {
-      await pecModel.sincronizar();
+      pecModel.sincronizar();
       return res.send({ message: 'Sincronizado com sucesso!' });
     } catch (e) {
       res.status(500).send({ message: e.message });
