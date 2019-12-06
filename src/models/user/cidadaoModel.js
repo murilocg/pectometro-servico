@@ -1,5 +1,5 @@
 const cidadaoService = require('./cidadaoService');
-const UsuarioModel = require('./UsuarioModel');
+const UsuarioModel = require('./usuarioModel');
 
 class CidadaoModel extends UsuarioModel {
   async criarUsuario(dados) {
